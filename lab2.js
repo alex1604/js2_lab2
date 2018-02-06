@@ -7,10 +7,10 @@ var callback = function(){
     p.className = "logOutMessage";
     p.innerText = "You've been logged out.";
     //let loginPopOver = document.getElementById("loginPopOver");
-    document.body.appendChild(p);
+    document.getElementById('loginPopOver').appendChild(p);
   }
 
-  if(oldURL == "alex1604.github.io/js2_lab2/lab2_chat.html"){
+  if(oldURL == "lab2_chat.html"){
     logOutMessage();
   }
 
