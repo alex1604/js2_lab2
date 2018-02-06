@@ -12,7 +12,7 @@ var callback = function(){
     console.log(p);
   }
 
-  if(oldURL === "lab2_chat.html"){
+  if(oldURL === "https://alex1604.github.io/js2_lab2/lab2_chat.html"){
     logOutMessage();
   }
 
