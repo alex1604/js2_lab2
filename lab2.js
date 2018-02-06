@@ -25,6 +25,7 @@ var callback = function(){
     firebase.auth().signInWithPopup(provider)
     .then(function(result) {
       let username = result.additionalUserInfo.profile.name;
+      console.log(username);
       const user = {name: username}; // WE USE THIS CONST TO GET THE USERNAME WITH USER.NAME
       let dataString = JSON.stringify( user );
       window.localStorage.setItem('user', dataString);

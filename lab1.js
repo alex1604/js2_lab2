@@ -5,8 +5,9 @@ var callback = function(){
 
   let chatWindow = document.getElementById('chatWindow');
   let logOut = document.getElementById('logOut');
+  var name = JSON.parse(localStorage.getItem('user')).name;
 
-  document.getElementById('welcome').innerHTML = 'You are logged in as ' + '"'+ JSON.parse(localStorage.getItem('user')).name + '"';
+  document.getElementById('welcome').innerHTML = 'You are logged in as ' + '"'+ name + '"';
 
   // Man klickar på Send Message, skapas ett objekt som skickas till databasen:
 
@@ -16,7 +17,6 @@ var callback = function(){
     date = String(date);
     time = date.slice(4,10) + ', ' + date.slice(16,21);
     let message = document.getElementById('message').value;
-    let name = JSON.parse(localStorage.getItem('user')).name;
     console.log(time);
     console.log(message);
     console.log(name);
