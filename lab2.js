@@ -24,7 +24,10 @@ var callback = function(){
     // Obs! Kontrollera att fönstret inte blockeras av en ad blocker
     firebase.auth().signInWithPopup(provider)
     .then(function(result) {
-      let username = result.additionalUserInfo.profile.name;
+        let username = result.additionalUserInfo.profile.name;
+        if (username == 'null' || username == 'undefined'){
+          let username = result.additionalUserInfo.profile.email;
+        }
       console.log(username);
       const user = {name: username}; // WE USE THIS CONST TO GET THE USERNAME WITH USER.NAME
       let dataString = JSON.stringify( user );
