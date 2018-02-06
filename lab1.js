@@ -6,6 +6,7 @@ var callback = function(){
   let chatWindow = document.getElementById('chatWindow');
   let logOut = document.getElementById('logOut');
 
+  document.getElementById('welcome').innerHTML = 'You are logged in as ' + '"'+ JSON.parse(localStorage.getItem('user')).name + '"';
 
   // Man klickar på Send Message, skapas ett objekt som skickas till databasen:
 
