@@ -24,17 +24,24 @@ var callback = function(){
     // Obs! Kontrollera att fönstret inte blockeras av en ad blocker
     firebase.auth().signInWithPopup(provider)
     .then(function(result) {
-        let username = result.additionalUserInfo.profile.name;
+      console.log(result);
+      let username = result.additionalUserInfo.profile.name;
+      if (username == 'null' || username == 'undefined'){
+        let username = result.additionalUserInfo.profile.email;
         if (username == 'null' || username == 'undefined'){
-          let username = result.additionalUserInfo.profile.email;
+          let username = result.additionalUserInfo.profile.login;
         }
+      }
       console.log(username);
       const user = {name: username}; // WE USE THIS CONST TO GET THE USERNAME WITH USER.NAME
       let dataString = JSON.stringify( user );
       window.localStorage.setItem('user', dataString);
-      alert('Please wait, you are being redirected.');
+      document.body.removeChild(document.getElementById('loginPopOver'));
+      let p = document.createElement('p');
+      p.innerHTML = 'Please wait, you are being redirected.';
+      document.body.appendChild(p);
       setTimeout(function(){
-        window.location = "lab2_chat.html";
+      window.location = "lab2_chat.html";
       }, 3000);
     }).catch(function(error){
       alert('Something went wrong. Try to reload the page');

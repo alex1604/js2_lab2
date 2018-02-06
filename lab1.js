@@ -63,8 +63,6 @@ var callback = function(){
   let db = firebase.database();
   db.ref('messages/').on('value',function(snapshot){
     let allData = snapshot.val();
-    console.log("The type of allData is: " + typeof allData)
-    console.log("These are all objects :" + allData);
     let messages = document.getElementById("messages");
 
     while (messages.firstChild) {
