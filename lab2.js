@@ -1,16 +1,18 @@
 var callback = function(){
 
   var oldURL = document.referrer;
+  console.log(oldURL);
 
   var logOutMessage = function(){
     let p = document.createElement("p");
     p.className = "logOutMessage";
-    p.innerText = "You've been logged out.";
+    p.innerHTML = "You've been logged out.";
     //let loginPopOver = document.getElementById("loginPopOver");
     document.getElementById('loginPopOver').appendChild(p);
+    console.log(p);
   }
 
-  if(oldURL == "lab2_chat.html"){
+  if(oldURL === "lab2_chat.html"){
     logOutMessage();
   }
 
