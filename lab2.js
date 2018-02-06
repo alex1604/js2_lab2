@@ -1,5 +1,19 @@
 var callback = function(){
 
+  var oldURL = document.referrer;
+
+  var logOutMessage = function(){
+    let p = document.createElement("p");
+    p.className = "logOutMessage";
+    p.innerText = "You've been logged out.";
+    //let loginPopOver = document.getElementById("loginPopOver");
+    document.body.appendChild(p);
+  }
+
+  if(oldURL == "alex1604.github.io/js2_lab2/lab2_chat.html"){
+    logOutMessage();
+  }
+
   let gitlog = document.getElementById('gitlog');
   gitlog.addEventListener('click',function(){
     // Ett objekt för att hantera GitHub-autentisering
