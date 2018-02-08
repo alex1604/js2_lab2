@@ -8,7 +8,7 @@ var callback = function(){
     p.className = "logOutMessage";
     p.innerHTML = "You've been logged out.";
     //let loginPopOver = document.getElementById("loginPopOver");
-    document.getElementById('loginPopOver').appendChild(p);
+    document.getElementById('logout_ms').appendChild(p);
     console.log(p);
   }
 
@@ -37,6 +37,7 @@ var callback = function(){
       let dataString = JSON.stringify( user );
       window.localStorage.setItem('user', dataString);
       document.body.removeChild(document.getElementById('loginPopOver'));
+      document.body.removeChild(document.getElementById('logout_ms'));
       let p = document.createElement('p');
       p.innerHTML = 'Please wait, you are being redirected.';
       document.body.appendChild(p);

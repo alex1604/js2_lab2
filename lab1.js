@@ -109,7 +109,14 @@ function scrollToBottom(){
   /* LOG OUT eller GLÖMMA BORT NAMNET */
   logOut.addEventListener('click', function(){
     localStorage.removeItem('user');
+    firebase.auth().signOut().then(function() {
+    // Sign-out successful.
     window.location = 'index.html';
+  }).catch(function(error) {
+  // An error happened.
+  alert('An error occurred and we couldn´t sign you out. Please, try again.')
+});
+
   });
 
 
